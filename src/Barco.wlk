@@ -1,6 +1,9 @@
 class Barco{
-	var tripulacion
+	var tripulacion = #{}
 	const capacidad
 	var mision
 	
+	method esVulnerableContraPirata(pirata){
+		return pirata.nivelEbriedad() >= 90
+	}
 }
