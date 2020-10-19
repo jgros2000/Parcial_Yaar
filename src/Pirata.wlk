@@ -2,7 +2,7 @@ import Misiones.*
 
 class Pirata {
 	var items = []
-	var nivelEbriedad
+	var property nivelEbriedad
 	var dinero
 	
 	method sirveParaMision(mision){
@@ -25,4 +25,11 @@ class Pirata {
 		return victima.esVulnerableContraPirata(self)
 	}
 	
+	method estaPasadoDeGrog(){
+		return nivelEbriedad >= 90
+	}
+	
+	method puedeSerTripulante(barco){
+		return barco.puedeIncorporarPirata(self)
+	}
 }
