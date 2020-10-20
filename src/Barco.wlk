@@ -24,4 +24,13 @@ class Barco{
 			tripulacion.add(pirata)
 		}
 	}
+	
+	method cambiarMision(nuevaMision){
+		mision = nuevaMision
+		self.actualizarTripulacion()
+	}
+	
+	method actualizarTripulacion(){
+		tripulacion.removeAllSuchThat({ Tripulante => not Tripulante.sirveParaMision(mision)})
+	}
 }

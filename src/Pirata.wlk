@@ -1,5 +1,5 @@
 import Misiones.*
-
+import Barco.*
 class Pirata {
 	var items = []
 	var property nivelEbriedad
