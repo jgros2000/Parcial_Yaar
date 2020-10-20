@@ -3,8 +3,20 @@ class Barco{
 	const capacidad
 	var mision
 	
+	
+	method esTemible(){
+		return mision.esSuperadaPorBarco(self)
+	}
+	
 	method esVulnerableContraPirata(pirata){
 		return pirata.estaPasadoDeGrog()
+	}
+	
+	method puedeSaquear(victima){
+		return victima.esVulnerableContraBarco(self)
+	}
+	method esVulnerableContraBarco(barco){
+		return self.cantidadTripulantes() <= (barco.cantidadTripulantes() / 2) 
 	}
 	
 	method puedeIncorporarPirata(pirata){
@@ -36,5 +48,23 @@ class Barco{
 	
 	method pirataMasEbrio(){
 		return tripulacion.max({Tripulante => Tripulante.nivelEbriedad()})
+	}
+	
+	method anclarEnCiudad(ciudad){
+		tripulacion.forEach({Tripulante => Tripulante.beberUnTrago()})
+		self.perderPirataMasEbrio(ciudad)
+	}
+	
+	method perderPirataMasEbrio(ciudad){
+		tripulacion.remove(self.pirataMasEbrio())
+		ciudad.nuevoHabitante()
+	}
+	
+	method tieneTripulanteCon(item){
+		return tripulacion.any({Tripulante => Tripulante.tieneItem(item)})
+	}
+	
+	method todosPasadosDeGrog(){
+		return tripulacion.all({Tripulante => Tripulante.estaPasadoDeGrog()})
 	}
 }

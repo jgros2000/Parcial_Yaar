@@ -1,5 +1,6 @@
 import Misiones.*
 import Barco.*
+import Ciudad.*
 class Pirata {
 	var items = []
 	var property nivelEbriedad
@@ -31,5 +32,23 @@ class Pirata {
 	
 	method puedeSerTripulante(barco){
 		return barco.puedeIncorporarPirata(self)
+	}
+	
+	method beberUnTrago(){
+		if (self.tieneParaUnTrago()){
+			nivelEbriedad = nivelEbriedad + 5
+			dinero = dinero - 1
+		}else{
+			throw new Exception(message = "No le alcanza para el trago")
+		}
+		
+	}
+	
+	method tieneParaUnTrago(){
+		return dinero > 0
+	}
+	
+	method tieneItem(item){
+		return items.contains(item)
 	}
 }
