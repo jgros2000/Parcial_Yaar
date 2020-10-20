@@ -33,4 +33,8 @@ class Barco{
 	method actualizarTripulacion(){
 		tripulacion.removeAllSuchThat({ Tripulante => not Tripulante.sirveParaMision(mision)})
 	}
+	
+	method pirataMasEbrio(){
+		return tripulacion.max({Tripulante => Tripulante.nivelEbriedad()})
+	}
 }
