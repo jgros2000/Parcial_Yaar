@@ -1,6 +1,7 @@
 import Misiones.*
 import Barco.*
 import Ciudad.*
+
 class Pirata {
 	var items = []
 	var property nivelEbriedad
@@ -50,5 +51,16 @@ class Pirata {
 	
 	method tieneItem(item){
 		return items.contains(item)
+	}
+}
+
+class Espia inherits Pirata{
+	
+	override method animaASaquear(victima){
+		return super(victima) && self.tieneItem("Permiso de la corona")
+	}
+	
+	override method estaPasadoDeGrog(){
+		return false
 	}
 }

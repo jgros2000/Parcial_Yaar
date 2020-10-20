@@ -67,4 +67,5 @@ class Barco{
 	method todosPasadosDeGrog(){
 		return tripulacion.all({Tripulante => Tripulante.estaPasadoDeGrog()})
 	}
+	
 }
