@@ -69,6 +69,14 @@ class Barco{
 	}
 	
 	method cuantosPasadosDeGrog(){
-		return tripulacion.count({Tripulante => Tripulante.estaPasadoDeGrog()})
+		return self.quienesEstanPasados().size()
+	}
+	
+	method quienesEstanPasados(){
+		return tripulacion.filter({Tripulante => Tripulante.estaPasadoDeGrog()})
+	}
+	
+	method cuantosItemsDiferentesDeGrog(){
+		return self.quienesEstanPasados().map({Tripulante => Tripulante.items()}).flatten().asSet().size()
 	}
 }

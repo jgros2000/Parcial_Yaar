@@ -3,7 +3,7 @@ import Barco.*
 import Ciudad.*
 
 class Pirata {
-	var items = []
+	var property items = []
 	var property nivelEbriedad
 	var dinero
 	
