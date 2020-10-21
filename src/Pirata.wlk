@@ -37,8 +37,8 @@ class Pirata {
 	
 	method beberUnTrago(){
 		if (self.tieneParaUnTrago()){
-			nivelEbriedad = nivelEbriedad + 5
-			dinero = dinero - 1
+			self.aumentarEbriedad(5)
+			self.disminuirDinero(1)
 		}else{
 			throw new Exception(message = "No le alcanza para el trago")
 		}
@@ -51,6 +51,14 @@ class Pirata {
 	
 	method tieneItem(item){
 		return items.contains(item)
+	}
+	
+	method aumentarEbriedad(cantidad){
+		nivelEbriedad += cantidad
+	}
+	
+	method disminuirDinero(cantidad){
+		dinero -= cantidad
 	}
 }
 

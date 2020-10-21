@@ -68,4 +68,7 @@ class Barco{
 		return tripulacion.all({Tripulante => Tripulante.estaPasadoDeGrog()})
 	}
 	
+	method cuantosPasadosDeGrog(){
+		return tripulacion.count({Tripulante => Tripulante.estaPasadoDeGrog()})
+	}
 }
