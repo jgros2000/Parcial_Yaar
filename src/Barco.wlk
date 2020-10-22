@@ -79,4 +79,8 @@ class Barco{
 	method cuantosItemsDiferentesDeGrog(){
 		return self.quienesEstanPasados().map({Tripulante => Tripulante.items()}).flatten().asSet().size()
 	}
+	
+	method pirataEbrioMasRico(){
+		return self.quienesEstanPasados().max({Tripulante => Tripulante.dinero()})
+	}
 }

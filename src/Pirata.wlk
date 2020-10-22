@@ -5,7 +5,7 @@ import Ciudad.*
 class Pirata {
 	var property items = []
 	var property nivelEbriedad
-	var dinero
+	var property dinero
 	
 	method sirveParaMision(mision){
 		return mision.esSuperadaPorPirata(self)
